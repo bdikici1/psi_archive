@@ -1,35 +1,80 @@
-# mac
+# ------------------------------------------------------------
+# ψ_archive .gitignore
+# Keep repo clean: track mint-ready previews + metadata + ASCII/code/analysis
+# Ignore OS/editor junk, build outputs, caches, and heavy raw exports.
+# ------------------------------------------------------------
+
+# macOS / Finder
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
 
-# python
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python caches & builds
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
-*.pyd
-.venv/
-venv/
-env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+dist/
+build/
+*.egg-info/
 
-# notebooks & data
-*.ipynb_checkpoints/
-*.sqlite
-*.db
+# Jupyter
+.ipynb_checkpoints/
 
-# big / generated
-*.gif
-*.mp4
-*.mov
-*.zip
-*.7z
-*.tar
-*.gz
+# Node (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# secrets
-*.pem
-*.key
-*.env
+# Local env / secrets
+.env
 .env.*
+*.key
+*.pem
 
-# logs
-*.log
-logs/
+# ------------------------------------------------------------
+# Media policy
+# ------------------------------------------------------------
+
+# Ignore heavy RAW exports / intermediates (keep mint-ready only)
+**/renders/
+**/render_tmp/
+**/frames/
+**/tmp/
+**/.cache/
+**/cache/
+
+# Big video formats (if you DON'T want them in git)
+# (Keep mp4 only if it's part of the release/mint package; otherwise store elsewhere or use Git LFS)
+*.mov
+*.mkv
+*.avi
+*.webm
+
+# Optional: ignore all mp4 by default (uncomment if needed)
+# *.mp4
+
+# Optional: ignore large layered sources (uncomment if needed)
+# *.psd
+# *.blend
+
+# ------------------------------------------------------------
+# Do NOT ignore: mint-ready previews & metadata (examples)
+# ------------------------------------------------------------
+# Z_market/mint_ready/**
+# A_visual/**/preview_*.jpg
+# A_visual/**/preview_*.jpeg
+# **/*.json
+# **/*.ascii
+# **/*.md
