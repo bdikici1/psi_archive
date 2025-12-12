@@ -1,1 +1,35 @@
+# mac
 .DS_Store
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# notebooks & data
+*.ipynb_checkpoints/
+*.sqlite
+*.db
+
+# big / generated
+*.gif
+*.mp4
+*.mov
+*.zip
+*.7z
+*.tar
+*.gz
+
+# secrets
+*.pem
+*.key
+*.env
+.env.*
+
+# logs
+*.log
+logs/
