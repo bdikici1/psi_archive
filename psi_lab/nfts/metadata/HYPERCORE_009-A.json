@@ -1,0 +1,59 @@
+{
+  "name": "ψ_GLYPH_VIZ::HYPERCORE_009-A",
+  "description": "Animated ψ-core hypernode (relay glyph). Center = stable cubic nucleus, periphery = entropic fractal shell. Designed as an information-transfer core, not a random abstract image. Part of the HYPERCORE series.",
+  "glyph_id": "ψ_GLYPH_VIZ::HYPERCORE_009-A",
+  "series": "HYPERCORE",
+  "version": "v1.0",
+  "animation_url": "ipfs://TODO_HYPERCORE_009-A_MP4",
+  "image": "ipfs://TODO_HYPERCORE_009-A_COVER", 
+  "external_url": "https://github.com/bdikici1/psi_archive/tree/main/A_visual/%CF%88_HYPERCORE_009-A",
+  "background_color": "000000",
+  "attributes": [
+    {
+      "trait_type": "Glyph Role",
+      "value": "relay_parent"
+    },
+    {
+      "trait_type": "Entropy Signature α",
+      "display_type": "number",
+      "value": 0.88
+    },
+    {
+      "trait_type": "Fractal D_f Core",
+      "display_type": "number",
+      "value": 2.1
+    },
+    {
+      "trait_type": "Fractal D_f Shell",
+      "display_type": "number",
+      "value": 2.7
+    },
+    {
+      "trait_type": "Temporal Metric",
+      "value": "∫∇·J_time dV / Static Mass ≈ 1.12"
+    },
+    {
+      "trait_type": "Lineage Potential",
+      "display_type": "number",
+      "value": 3
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1/1"
+    },
+    {
+      "trait_type": "Mint Price (GT, launch)",
+      "display_type": "number",
+      "value": 130
+    },
+    {
+      "trait_type": "Model Price (GT, v0.1)",
+      "display_type": "number",
+      "value": 180
+    },
+    {
+      "trait_type": "Tokenomics Version",
+      "value": "v0.1"
+    }
+  ]
+}
