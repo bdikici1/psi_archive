@@ -1,0 +1,16 @@
+{
+  "name": "ψ_HYPERCORE_010-B",
+  "description": "Recursive Ψ-Core with swarm mutation lattice. Generates and replicates informational structures.",
+  "external_url": "https://github.com/bdikici1/psi_archive",
+  "ascii": "ψ_HYPERCORE_010-B",
+  "attributes": [
+    { "trait_type": "Entropy Signature (α)", "display_type": "number", "value": 0.92 },
+    { "trait_type": "Fractal Dimension Center", "display_type": "number", "value": 1.9 },
+    { "trait_type": "Fractal Dimension Edge", "display_type": "number", "value": 2.8 },
+    { "trait_type": "Function", "value": "Recursive ψ-Core + Mutation Shell" },
+    { "trait_type": "Linked Nodes", "value": "ψ_HYPERCORE_009-A, ψ_TRACE_017" },
+    { "trait_type": "Edition", "value": "1/1" },
+    { "trait_type": "Model Price (GT, v0.1)", "display_type": "number", "value": 160 },
+    { "trait_type": "Tokenomics Version", "value": "v0.1" }
+  ]
+}
