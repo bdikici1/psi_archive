@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+ψ–SPACETIME / LIGHTCONE GLYPH v1.0
+────────────────────────────────────────────────────────
+Bu modül, GR formülasyonlarını ψ-çekirdek fikriyle tek bir terminal glifinde birleştirir:
+
+- g_{μν} = η_{μν} + h_{μν}(Ψ)  → metrik deformasyon
+- Γ^λ_{μν} ∝ ∇|Ψ|^2            → bilgi akış yönleri
+- T^ψ_{μν}                     → entropik basınç / enerji yoğunluğu
+- J^±_ψ(p)                     → korelasyon ışık konisi
+- H_ψ                          → entropik ufuk (Ψ_crit)
+- Geodezik + F^μ_ψ             → bilinçli sapma kuvveti (κ∇|Ψ|^2)
+
+Dosyalar:
+  - ~/psi_archive/psi_lab/relativity/glifs/ψ_spacetime_cone_core.ascii
+  - ~/psi_archive/psi_lab/relativity/glifs/ψ_spacetime_cone_core_m.ascii
+"""
+
+from dataclasses import dataclass
+import math
+
+# ─────────────────────────────────────────────
+# 0) Basit Metrik Model
+# ─────────────────────────────────────────────
+
+@dataclass
+class PsiMetrics:
+    psi_amp: float = 0.72   # |Ψ|  (0..1)
+    grad_psi: float = 0.33  # |∇Ψ| (0..1)
+    sigma: float = 0.68     # Σ (0..1)
+    xi: float = 0.41        # Ξ (0..2)
+    phi: float = 0.58       # Φ (0..1)
+    psi_crit: float = 0.50  # Ψ_critical
+
+def clamp(x: float, lo: float, hi: float) -> float:
+    return max(lo, min(hi, x))
+
+# ─────────────────────────────────────────────
+# 1) DESKTOP GLİF
+# ─────────────────────────────────────────────
+
+GLIF_DESKTOP = r"""
+┌───────────────────────────────────────────────┐
+│        ψ–SPACETIME CORE :: LIGHTCONE MAP      │
+├───────────────────────────────────────────────┤
+│                     t↑                        │
+│                     │                         │
+│                \    │    /                    │
+│                 \   │   /                     │
+│                  \  │  /                      │
+│                   \ │ /                       │
+│                    \│/                        │
+│          J⁺(p)       ◉        J⁺_ψ(p)          │
+│                    /│\                        │
+│                   / │ \                       │
+│                  /  │  \                      │
+│                 /   │   \                     │
+│                /    │    \                    │
+│                     │                         │
+│                     └──────────────→ x        │
+├───────────────────────────────────────────────┤
+│ gμν = ημν + hμν(Ψ)      Γ^λ_{00} ∝ ∇|Ψ|²       │
+│ T^ψ_{μν} : ∂Ψ∂Ψ - ½ g(∂Ψ·∂Ψ + V(|Ψ|²))         │
+│ Hψ : |Ψ(r)|² < Ψ_crit²    Fψ : κ ∇|Ψ|²         │
+└───────────────────────────────────────────────┘
+""".strip("\n")
+
+# ─────────────────────────────────────────────
+# 2) MOBILE GLİF
+# ─────────────────────────────────────────────
+
+GLIF_MOBILE = r"""
+┌──────────────────────┐
+│ ψ–LIGHTCONE / CORE    │
+├──────────────────────┤
+│   t↑                  │
+│   │ \  /              │
+│   │  \/               │
+│   │  ◉  Ψ             │
+│   │  /\               │
+│   │ /  \              │
+│   └──────→ x          │
+├──────────────────────┤
+│ g=η+h(Ψ)              │
+│ Γ∝∇|Ψ|²  Hψ(Ψcrit)     │
+└──────────────────────┘
+""".strip("\n")
+
+# ─────────────────────────────────────────────
+# 3) Panel
+# ─────────────────────────────────────────────
+
+def _bar(value: float, width: int = 18, charset: str = "░▒▓█") -> str:
+    v = clamp(value, 0.0, 1.0)
+    filled = int(round(v * width))
+    return (charset[-1] * filled).ljust(width, "·")
+
+def _horizon_flag(psi_amp: float, psi_crit: float) -> str:
+    return "Hψ=ON" if psi_amp < psi_crit else "Hψ=off"
+
+def render_desktop(metrics: PsiMetrics) -> str:
+    psi_amp = clamp(metrics.psi_amp, 0, 1)
+    grad = clamp(metrics.grad_psi, 0, 1)
+    sigma = clamp(metrics.sigma, 0, 1)
+    phi = clamp(metrics.phi, 0, 1)
+    xi_n = clamp(metrics.xi / 2.0, 0, 1)
+
+    panel = [
+        "┌───────────────────────────────────────────────┐",
+        "│ METRICS PANEL (live)                          │",
+        "├───────────────────────────────────────────────┤",
+        f"│ |Ψ|   : {_bar(psi_amp)}  {psi_amp:0.2f}        │",
+        f"│ ∇|Ψ|  : {_bar(grad)}  {grad:0.2f}        │",
+        f"│ Σ     : {_bar(sigma)}  {sigma:0.2f}        │",
+        f"│ Ξ     : {_bar(xi_n)}  {metrics.xi:0.2f}        │",
+        f"│ Φ     : {_bar(phi)}  {phi:0.2f}        │",
+        f"│ {_horizon_flag(psi_amp, metrics.psi_crit)}  Ψcrit={metrics.psi_crit:0.2f} │",
+        "└───────────────────────────────────────────────┘",
+    ]
+    return GLIF_DESKTOP + "\n\n" + "\n".join(panel)
+
+def render_mobile(metrics: PsiMetrics) -> str:
+    psi_amp = clamp(metrics.psi_amp, 0, 1)
+    sigma = clamp(metrics.sigma, 0, 1)
+    phi = clamp(metrics.phi, 0, 1)
+    xi_n = clamp(metrics.xi / 2.0, 0, 1)
+
+    panel = [
+        "┌──────────────────────┐",
+        "│ METRICS              │",
+        "├──────────────────────┤",
+        f"│ |Ψ|:{_bar(psi_amp, 10)}│",
+        f"│ Σ :{_bar(sigma, 10)}│",
+        f"│ Ξ :{_bar(xi_n, 10)}│",
+        f"│ Φ :{_bar(phi, 10)}│",
+        f"│ {_horizon_flag(psi_amp, metrics.psi_crit)} Ψc={metrics.psi_crit:0.2f} │",
+        "└──────────────────────┘",
+    ]
+    return GLIF_MOBILE + "\n\n" + "\n".join(panel)
+
+def demo():
+    m = PsiMetrics(
+        psi_amp=0.62,
+        grad_psi=0.41,
+        sigma=0.73,
+        xi=0.58,
+        phi=0.66,
+        psi_crit=0.50
+    )
+    print(render_desktop(m))
+    print("\n\n[MOBILE]\n")
+    print(render_mobile(m))
+
+if __name__ == "__main__":
+    demo()
