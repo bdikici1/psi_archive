@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$HOME/psi_archive"
+
+echo "────────────────────────────"
+echo " ψ publish :: export check"
+echo "────────────────────────────"
+
+echo
+echo "[1] Checking public structure..."
+ls -la psi_lab/public || true
+echo
+ls -la psi_lab/public/index || true
+echo
+ls -la psi_lab/public/nfts || true
+
+echo
+echo "[2] Checking registry..."
+if [ -f psi_lab/public/index/index.json ]; then
+  echo "index.json found."
+else
+  echo "index.json missing!"
+fi
+
+echo
+echo "[3] Git status"
+git status
+
+echo
+echo "Done."
+echo "Next step:"
+echo "  git add psi_lab/public"
+echo "  git commit -m \"Update public export\""
+echo "  git push"
