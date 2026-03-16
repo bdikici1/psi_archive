@@ -1,0 +1,45 @@
+{
+  "name": "ψ_GLYPH_VIZ::HYPERCORE_009-A",
+  "description": "HYPERCORE_009-A is a relay-class glyph node in the ψ-GLYPH system. It is documented not as a static image, but as a time-encoded system object composed of MP4 output, ASCII glyph structure, executable metadata, and archival trace.",
+  "external_url": "https://github.com/bdikici1/psi_archive/tree/main/psi_lab/nfts/HYPERCORE_009-A",
+  "animation_url": "",
+  "image": "",
+  "attributes": [
+    {
+      "trait_type": "Collection",
+      "value": "GLYPHCORE — Genesis Collection"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Relay Core"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Mint-ready"
+    },
+    {
+      "trait_type": "Entropy Signature",
+      "value": "α ≈ 0.88"
+    },
+    {
+      "trait_type": "Temporal Metric",
+      "value": "~1.12"
+    },
+    {
+      "trait_type": "Fractal Center",
+      "value": "D_f ≈ 2.1"
+    },
+    {
+      "trait_type": "Fractal Edge",
+      "value": "D_f ≈ 2.7"
+    },
+    {
+      "trait_type": "Role",
+      "value": "Parent / Relay"
+    },
+    {
+      "trait_type": "Evolution",
+      "value": "Enabled"
+    }
+  ]
+}
