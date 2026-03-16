@@ -1,4 +1,105 @@
-# ------------------------------------------------------------
+# ---------------------------------------------------
+# macOS
+# ---------------------------------------------------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS thumbnails
+._*
+
+# ---------------------------------------------------
+# Python
+# ---------------------------------------------------
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.*
+*.pyo.*
+
+# virtual env
+venv/
+.env/
+.venv/
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---------------------------------------------------
+# Local runtime state (psi_lab)
+# ---------------------------------------------------
+
+psi_lab/state/
+psi_lab/logs/
+psi_lab/cache/
+
+# scan results
+psi_lab/**/scan_results/
+psi_lab/**/runtime/
+
+# ---------------------------------------------------
+# NFT mint runtime (local only)
+# ---------------------------------------------------
+
+psi_lab/nfts/mint_jobs/
+
+# temporary mint data
+psi_lab/nfts/*/mint_temp/
+psi_lab/nfts/*/runtime/
+
+# ---------------------------------------------------
+# Terminal generated artifacts
+# ---------------------------------------------------
+
+*.log
+*.tmp
+*.cache
+
+# ---------------------------------------------------
+# Experimental / private tools
+# ---------------------------------------------------
+
+psi_lab/private/
+psi_lab/experimental/
+
+# ---------------------------------------------------
+# Large media temp files
+# ---------------------------------------------------
+
+*.mov
+*.avi
+*.mkv
+*.wav
+
+# ---------------------------------------------------
+# Node / build tools (future)
+# ---------------------------------------------------
+
+node_modules/
+dist/
+build/
+
+# ---------------------------------------------------
+# Secrets
+# ---------------------------------------------------
+
+.env.local
+.env.secret
+private_keys/
+wallets/
+
+# ---------------------------------------------------
+# OS / editor junk
+# ---------------------------------------------------
+
+.vscode/
+.idea/
+*.swp
+*.swo----------------------------------------------------------
 # ψ_archive .gitignore
 # Keep repo clean: track mint-ready previews + metadata + ASCII/code/analysis
 # Ignore OS/editor junk, build outputs, caches, and heavy raw exports.
