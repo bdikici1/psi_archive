@@ -84,3 +84,5 @@ node_modules/
 .env
 cache/
 artifacts/
+psi_lab/state/
+psi_lab/nfts/mint_jobs/
